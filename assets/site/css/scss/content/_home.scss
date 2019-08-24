@@ -1,0 +1,151 @@
+.pageview-home {
+	.content {padding: 0;}
+}
+
+.home-slider {
+	position: relative;
+	height: 450px;
+	overflow: hidden;
+	
+	&-item {
+		position: relative;
+		@include flex(center, center);
+		@include mysize(100%, 450px);
+		color: inherit;
+		text-decoration: none;
+		
+		.img {
+			@include position(absolute, 0, 0);
+			@include mysize(100%, 100%);
+			background: transparent no-repeat center;
+			background-size: cover;
+			
+			&-mob {display: none;}
+		}
+		
+		.wrapper {
+			@include flex;
+			padding: 30px 100px;
+			
+			&-left {justify-content: flex-start;}
+			&-center {justify-content: center;}
+			&-right {justify-content: flex-end;}
+		}
+		
+		.inner {
+			max-width: 100%;
+		}
+		
+		.descr {
+			+ .more {margin-top: 20px;}
+		}
+		.title {
+			@include myfont(35px, 700, 40px, $color-link);
+			text-transform: uppercase;
+		}
+		.text {
+			margin-top: 30px;
+			@include myfont(20px, null, 30px);
+		}
+		.more {
+			.btn {
+				height: auto;
+				@include myfont(18px, 500, 25px);
+				padding: 15px 25px;
+				min-width: 180px
+			}
+		}
+	}
+	
+	.owl-nav {
+		@include position(absolute, 0, 50%, null, null, 10);
+		width: 100%;
+		
+		button {
+			@include position(absolute, null, -20px);
+			@include flex(center, center);
+			@include mysize(40px, 40px);
+			@include myfont(40px, null, 1, $color-gray);
+			@include transition(all 0.3s ease 0s);
+			background: none;
+			cursor: pointer;
+			
+			&.owl {
+				&-prev {left: 20px;}
+				&-next {right: 20px;}
+			}
+			
+			&:hover {
+				color: $color-gray-lite;
+			}
+		}
+	}
+	
+	.owl-dots {
+		@include position(absolute, 0, null, null, 20px, 9);
+		@include flex(center, center);
+		width: 100%;
+		
+		> * {
+			margin-right: 10px;
+			&:last-child {margin: 0;}
+		}
+	}
+	.owl-dot {
+		display: block;
+		@include mysize(12px, 12px);
+		border-radius: 100%;
+		background: $color-gray-lite;
+		@include transition(all 0.3s ease 0s);
+		
+		&:hover {background: $color-gray;}
+		&.active {background: $color-link;}
+	}
+}
+
+.home-about {
+	display: block;
+	padding: 50px 0;
+	
+	.title {
+		@include myfont(30px, 700, 35px);
+	}
+	.text {
+		margin-top: 20px;
+	}
+	.bottom {
+		margin-top: 20px;
+	}
+}
+
+.home-social {
+	padding: 30px 0;
+	background: #f2f2f2;
+	text-align: center;
+	
+	.title {
+		@include myfont(18px, 700, 25px);
+	}
+	.list {
+		@include flex(center, center);
+		margin-top: 20px;
+		
+		> li {
+			margin-right: 10px;
+			&:last-child {margin: 0;}
+		}
+		
+		a {
+			@include flex(center, center);
+			@include mysize(35px, 35px);
+			@include myfont(16px, null, null, #fff);
+			@include mytext(center, none);
+			border-radius: 100%;
+			background: $color-gray-lite;
+			@include transition(all 0.3s ease 0s);
+			
+			&:last-child {margin-right: 0;}
+			&:hover {background: $color-link;}
+		}
+	}
+}

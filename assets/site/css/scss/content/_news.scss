@@ -1,0 +1,145 @@
+.news-list {
+	
+	> li {
+		margin-bottom: 30px;
+		&:last-child {margin: 0;}
+	}
+}
+
+.news-item {
+	@include flex(flex-start);
+	color: inherit;
+	text-decoration: none;
+	
+	.img {
+		width: 250px;
+		margin-right: -250px;
+		overflow: hidden;
+		
+		img {
+			display: block;
+			width: 100%;
+			@include transition(all 0.3s ease 0s);
+		}
+	}
+	.descr {
+		width: 100%;
+		padding-left: 280px;
+	}
+	
+	.date {
+		@include myfont(13px, null, 15px, $color-gray-lite);
+		margin-bottom: 10px;
+		
+		.fa5 {margin-right: 5px;}
+	}
+	
+	.title {
+		@include myfont(18px, 700, 25px);
+		text-decoration: underline;
+	}
+	
+	.brief {
+		@include myfont(null, null, 21px, $color-gray);
+		margin-top: 10px;
+	}
+	
+	.bottom {
+		margin-top: 5px;
+	}
+	
+	.more {
+		color: $color-link;
+		text-decoration: underline;
+		
+		&:hover {text-decoration: none;}
+	}
+	
+	&:hover {
+		.img {
+			img {@include scale(1.05);}
+		}
+		.title {
+			text-decoration: none;
+		}
+	}
+}
+
+.news-content {
+	@include flex(flex-start);
+	
+	&-left {
+		width: 100%;
+		padding-right: 290px;
+		margin-right: -250px;
+	}
+	&-right {
+		width: 250px;
+	}
+	
+	&-top {
+		margin-bottom: 20px;
+	}
+	&-date {
+		@include myfont(null, null, 20px, $color-gray);
+		margin-top: 10px;
+		
+		.fa5 {margin-right: 5px;}
+	}
+}
+
+.news-similars {
+	
+	&-title {
+		@include myfont(20px, 700, 25px);
+		margin-bottom: 25px;
+	}
+	&-list {
+		
+		> li {
+			margin-bottom: 30px;
+			&:last-child {margin: 0;}
+		}
+	}
+	&-item {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+		
+		.img {
+			overflow: hidden;
+			margin-bottom: 10px;
+			
+			img {
+				display: block;
+				width: 100%;
+				@include transition(all 0.3s ease 0s);
+			}
+		}
+		.date {
+			@include myfont(12px, null, 15px, $color-gray-lite);
+			margin-bottom: 5px;
+			
+			.fa5 {margin-right: 5px;}
+		}
+		.title {
+			@include myfont(16px, 700, 22px);
+			text-decoration: underline;
+		}
+		.brief {
+			@include myfont(13px, null, 16px, $color-gray);
+			margin-top: 5px;
+			max-height: 48px;
+			overflow: hidden;
+		}
+	
+		&:hover {
+			.img {
+				img {@include scale(1.05);}
+			}
+			.title {
+				text-decoration: none;
+			}
+		}
+	}
+}

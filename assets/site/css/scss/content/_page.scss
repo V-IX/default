@@ -1,0 +1,128 @@
+/* CONTENT
+------------------------------------------------------------------------ */
+
+.content {
+	flex-grow: 1;
+	padding: 15px 0 50px;
+}
+
+.page {
+	&-content {}
+	
+	&-top {
+		margin-bottom: 30px;
+	}
+	
+	&-title {
+		@include myfont(30px, 700, 34px);
+	}
+	
+	&-brief {
+		margin-top: 10px;
+		@include myfont(14px, null, 20px, $color-gray);
+	}
+	&-text {
+		margin-top: 50px;
+	}
+	
+	&-error {
+		margin-bottom: 30px;
+	}
+	
+	
+	&-bottom {
+		margin-top: 30px;
+		@include flex(center, space-between);
+		flex-direction: row-reverse;
+	}
+	&-social {
+		
+	}
+	&-return {
+	
+	}
+}
+
+
+/* BREADCRUMBS
+--------------------------------------------------------*/
+
+.breadcrumbs {
+	@include myfont(12px, null, null, $color-gray-lite);
+	margin-bottom: 10px;
+	&-in {
+		@include ellipsis;
+	}
+	&-sep {
+		margin: 0 5px;
+		color: $color-link;
+	}
+	& a {
+		color: $color-link;
+	}
+}
+
+
+/* PAGINATION
+--------------------------------------------------------*/
+
+.pagination {
+	@include flex(center, center);
+	margin-top: 40px;
+	text-align: center;
+	font-size: 0;
+	
+	& li {
+		@include myfont(14px, 700);
+	}
+	
+	& a {
+		display: block;
+		text-decoration: none;
+		transition: color 0.3s ease 0s;
+	}
+	
+	&-num a {
+		@include mysize(38px, 38px);
+		color: $color-link;
+		line-height: 38px;
+		transition: all 0.3s ease 0s;
+		&:hover {
+			background: #f2f2f2;
+		}
+	}
+	
+	&-active a {
+		color: #fff;
+		background: $color-link;
+		&:hover {
+			color: #fff;
+			background: $color-link;
+		}
+	}
+	
+	&-nav a {
+		@include myfont(13px, 600);
+		color: $color-gray;
+		& .fa {
+			vertical-align: 1px;
+			font-size: 10px;
+		}
+		& span {
+			text-decoration: underline;
+		}
+		&:hover {
+			& span {text-decoration: none;}
+		}
+	}
+	
+	&-left {
+		margin-right: 15px;
+		& .fa {margin-right: 5px;}
+	}
+	&-right {
+		margin-left: 15px;
+		& .fa {margin-left: 5px;}
+	}
+	
+}

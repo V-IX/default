@@ -1,0 +1,32 @@
+.social {
+	@include flex(center);
+}
+
+
+.social-label {
+	@include myfont(14px, null, null, $color-gray);
+	margin-right: 10px;
+}
+.social-init {}
+
+.social-list {
+	@include flex(center);
+	
+	> li {
+		margin-right: 5px;
+		&:last-child {margin: 0;}
+	}
+}
+
+.social-icon {
+	@include flex(center, center);
+	@include mysize(35px, 35px);
+	@include myfont(16px, null, null, #fff);
+	@include mytext(center, none);
+	border-radius: 100%;
+	background: $color-gray;
+	@include transition(all 0.3s ease 0s);
+	
+	&:last-child {margin-right: 0;}
+	&:hover {background: $color-gray-lite;}
+}

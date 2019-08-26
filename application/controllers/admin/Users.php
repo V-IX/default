@@ -133,12 +133,16 @@ class Users extends ADMIN_Controller {
 	
 	public function view()
 	{
-		$this->data['item'] = $this->model->getItem('idItem', uri(4));
-		if(empty($this->data['item']))
+		$item = $this->model->getItem('id', uri(4));
+		if(empty($item))
 		{
 			set_flash('result', action_result('error', fa('warning mr5').' Пользователь не найден!', true));
 			redirect('admin/'.$this->page);
 		}
+		
+		$this->data['item'] = $item;
+		
+		$this->data['access'] = $this->model->getAccess($item['access']);
 		
 		$this->breadcrumbs->add('Просмотр', '');
 		

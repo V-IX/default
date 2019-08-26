@@ -2,9 +2,9 @@
 
 class Base_model extends CI_Model {
 	
-	public $table 		= null;
-	public $folder		= null;
-	public $page		= null;
+	protected $table	= null;
+	protected $folder	= null;
+	protected $page		= null;
 	
 	# GET
 	

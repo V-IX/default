@@ -147,7 +147,7 @@
 							</div>
 							<div class="descr">
 								<a href="<?=base_url('admin/news/view/'.$new['id']);?>" class="title"><?=$new['title'];?></a>
-								<div class="date text-gray"><?=translate_date($new['add_date']);?></div>
+								<div class="date text-gray"><?=translate_date($new['pub_date']);?></div>
 								<div class="brief"><?=$new['brief'];?></div>
 							</div>
 						</div>
@@ -178,7 +178,7 @@
 							</div>
 							<div class="descr">
 								<a href="<?=base_url('admin/articles/view/'.$new['id']);?>" class="title"><?=$new['title'];?></a>
-								<div class="date text-gray"><?=translate_date($new['add_date']);?></div>
+								<div class="date text-gray"><?=translate_date($new['pub_date']);?></div>
 								<div class="brief"><?=$new['brief'];?></div>
 							</div>
 						</div>

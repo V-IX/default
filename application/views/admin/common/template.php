@@ -83,9 +83,14 @@
 			<ul class="left-menu">
 			<? foreach($sidenav as $nav) { ?>
 				<li>
-					<? $current = uri(2) == $nav['alias'] ? 'current' : '';?>
-					<? $nav['link'] = $nav['link'] != '' ? 'admin/'.$nav['link'] : 'js'; ?>
-					<?=anchor($nav['link'], fa($nav['icon'].' fa-fw').' '.$nav['name'], array('class' => $current));?>
+					<?
+						$params = ['class' => ''];
+						$params['class'] .= uri(2) == $nav['alias'] ? ' current' : null;
+						if($nav['alias'] == 'files') $params['target'] = '_blank';
+						
+						$nav['link'] = $nav['link'] != '' ? 'admin/'.$nav['link'] : 'js';
+					?>
+					<?=anchor($nav['link'], fa($nav['icon'].' fa-fw').' '.$nav['name'], $params);?>
 					<? if(!empty($nav['childs'])) { ?>
 						<ul class="submenu">
 						<? foreach($nav['childs'] as $child) { ?>

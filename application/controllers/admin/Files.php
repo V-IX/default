@@ -5,7 +5,8 @@ class Files extends ADMIN_Controller {
     public function index()
     {
         $this->init('files');
-        $this->output('common/files');
+        $this->data['template'] = 'admin/common/files';
+        $this->output();
     }
 
     public function elfinder_init()

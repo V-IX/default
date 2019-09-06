@@ -43,8 +43,12 @@
 .elfinder-contextmenu .ui-state-hover { background: #3875d7; color:#fff; }
 .elfinder-contextmenu .ui-state-hover .elfinder-contextmenu-arrow { background-image:url('../img/arrows-active.png'); }
 
+#elfinder {
+	border: 0;
+	height: 100% !important;
+}
 
-
-
-
-
+.ui-helper-clearfix:after {
+	content: '';
+	width: 100%;
+}

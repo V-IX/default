@@ -156,7 +156,7 @@ class Users extends ADMIN_Controller {
 		
 		try
 		{
-			if($_POST && $this->input->post('delete') == 'delete' && $id != $this->userid)
+			if($_POST && $this->input->post('delete') == 'delete' && $id != $this->data['userid'])
 			{
 				$item = $this->model->getItem('id', $id);
 				if(empty($item))

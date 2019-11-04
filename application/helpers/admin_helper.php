@@ -1,10 +1,5 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-function try_error($text)
-{
-	throw new UnexpectedValueException ($text);
-}
-
 if ( ! function_exists('seo_checker'))
 {
 	function seo_checker($item)

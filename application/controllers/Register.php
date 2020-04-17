@@ -33,9 +33,9 @@ class Register extends SITE_Controller {
 				
 				$redirect = $this->input->post('redirect') ?? 'cabinet';
 				redirect($redirect);
-				
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = action_result('error', $e->getMessage());
 			}
 		}

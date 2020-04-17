@@ -13,7 +13,7 @@
 	@if $wrap != null {flex-wrap: $wrap;}
 }
 
-@mixin mysize($width: null, $height: null) {
+@mixin size($width: null, $height: null) {
 	@if $width != null {width: $width;}
 	@if $height != null {height: $height;}
 }
@@ -33,7 +33,7 @@
 
 // FONT
 
-@mixin myfont($fs: null, $fw: null, $lh: null, $c: null, $ff: null) {
+@mixin font($fs: null, $fw: null, $lh: null, $c: null, $ff: null) {
 	@if $ff != null {font-family: $ff;}
 	@if $fs != null {font-size: $fs;}
 	@if $fw != null {font-weight: $fw;}
@@ -41,7 +41,7 @@
 	@if $c != null {color: $c;}
 }
 
-@mixin mytext($align: null, $dec: null, $transform: null, $indent: null) {
+@mixin text($align: null, $dec: null, $transform: null, $indent: null) {
 	text: {
 		@if $align != null		{align: $align;}
 		@if $dec != null 		{decoration: $dec;}
@@ -59,6 +59,14 @@
 
 // TRANSFORM
 
+@mixin transition($transition: all 0.3s ease 0s) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-o-transition: $transition;
+	-ms-transition: $transition;
+	transition: $transition;
+}
+
 @mixin scale($scale) {
 	-webkit-transform: scale($scale);
 	-moz-transform: scale($scale);
@@ -73,14 +81,6 @@
 	-ms-transform: rotate($deg);
 	-o-transform: rotate($deg);
 	transform: rotate($deg);
-}
-
-@mixin transition($transition) {
-    transition: $transition;
-    -webkit-transition: $transition;
-    -moz-transition: $transition;
-    -o-transition: $transition;
-    -ms-transition: $transition;
 }
 
 

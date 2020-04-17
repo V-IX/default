@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Reviews
+ * @property Reviews_model model
+ */
+
 class Reviews extends ADMIN_Controller {
 
 	public $page = 'reviews';
@@ -19,7 +24,7 @@ class Reviews extends ADMIN_Controller {
 		$count = $this->model->getCount();
 		$pagination = admin_pagination($this->page.'/index', $count);
 		
-		$this->data['items'] = $this->model->getItems(null, 'pub_date|DESC', $pagination['per_page'], $pagination['offset']);
+		$this->data['items'] = $this->model->getItems(null, 'pub_date DESC', $pagination['per_page'], $pagination['offset']);
 		
 		$this->load->library('pagination');
 		$this->pagination->initialize($pagination);
@@ -49,9 +54,9 @@ class Reviews extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['name'].'"</strong> успешно добавлена!', true));
 				redirect('admin/'.$this->page);
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				if(!empty($file)) $this->model->file_delete($file);
 				$this->data['error'] = $e->getMessage();
 			}
@@ -102,9 +107,9 @@ class Reviews extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['name'].'"</strong> успешно обновлена!', true));
 				redirect(uri(5) == 'close' ? '/admin/'.$this->page : current_url());
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				if(!empty($file)) $this->model->file_delete($file);
 				$this->data['error'] = $e->getMessage();
 			}
@@ -166,7 +171,9 @@ class Reviews extends ADMIN_Controller {
 				$this->model->file_delete($item['img']);
 				$error = false;
 			}
-		}  catch(Exception $e) {
+		}
+		catch(Exception $e)
+		{
 			$error = $e->getMessage();
 		}
 		
@@ -185,8 +192,6 @@ class Reviews extends ADMIN_Controller {
 	
 	public function ajaxImageDelete()
 	{
-		$this->output->set_content_type('application/json');
-		
 		$error = 'Ошибка данных POST';
 		
 		$id = uri(4);
@@ -204,10 +209,14 @@ class Reviews extends ADMIN_Controller {
 				$this->model->file_delete($item[$type]);
 				$error = false;
 			}
-		}  catch(Exception $e) {
+		}
+		catch(Exception $e)
+		{
 			$error = strip_tags($e->getMessage());
 		}
 		
-		$this->output->set_output(json_encode(['error' => $error]));
+		$this->output
+			->set_content_type('application/json')
+			->set_output(json_encode(['error' => $error]));
 	}
 }

@@ -70,16 +70,16 @@
         <a href="javascript:void(0)" class="tmenu-btn"><?=fa('bars');?> Меню сайта</a>
 		<div class="tmenu-list">
 			<ul>
-			<? foreach($tmenu as $_tmenu) { ?>
+			<? foreach($nav_header as $navlink) { ?>
 				<li>
 					<div class="tmenu-item">
-						<?=navlink($_tmenu, ['class' => 'tmenu-link']);?>
+						<?=navlink($navlink, ['class' => 'tmenu-link']);?>
 						
-						<? if(!empty($_tmenu['childs'])) { ?>
+						<? if(!empty($navlink['childs'])) { ?>
 							<ul class="tmenu-child">
-							<? foreach($_tmenu['childs'] as $_tchild) { ?>
+							<? foreach($navlink['childs'] as $navchild) { ?>
 								<li>
-									<?=navlink($_tchild);?>
+									<?=navlink($navchild);?>
 								</li>
 							<? } ?>
 							</ul>

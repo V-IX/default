@@ -43,9 +43,9 @@ class Settings extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Настройки успешно изменены!', true));
 				redirect(uri(4) == 'close' ? '/admin/'.$this->page : current_url());
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				if(!empty($file)) $this->model->file_delete($file);
 				$this->data['error'] = $e->getMessage();
 			}
@@ -61,8 +61,9 @@ class Settings extends ADMIN_Controller {
 		try
 		{
 			$this->model->cache();
-			
-		} catch(Exception $e) {
+		}
+		catch(Exception $e)
+		{
 			$error = $e->getMessage();
 		}
 		

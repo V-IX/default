@@ -3,7 +3,7 @@
 
 .form-input {
 	@include inline;
-	@include mysize(100%, $form-height);
+	@include size(100%, $form-height);
 	border: 1px solid $border-color;
 	padding: 0 10px;
 	font-weight: 500;
@@ -68,10 +68,10 @@ input[readonly] {
 	&-clear {
 		@include flex(center, center);
 		@include position(absolute, null, 0, 100px);
-		@include mysize(35px, 100%);
-		@include myfont(16px, null, null, $color-gray-lite);
+		@include size(35px, 100%);
+		@include font(16px, null, null, $color-gray-lite);
 		text-decoration: none;
-		@include transition(all 0.3s ease 0s);
+		@include transition;
 		
 		&:hover {
 			color: #d11212;

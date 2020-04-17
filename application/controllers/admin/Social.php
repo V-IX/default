@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Social
+ * @property Social_model model
+ */
+
 class Social extends ADMIN_Controller {
 
 	public $page = 'social';
@@ -51,9 +56,9 @@ class Social extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['title'].'"</strong> успешно обновлена!', true));
 				redirect(uri(5) == 'close' ? '/admin/'.$this->page : current_url());
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = $e->getMessage();
 			}
 		}

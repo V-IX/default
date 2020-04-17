@@ -23,7 +23,7 @@
 }
 
 .contacts-title {
-	@include myfont(20px, 700, 25px);
+	@include font(20px, 700, 25px);
 	text-transform: uppercase;
 	margin-bottom: 25px;
 }
@@ -41,7 +41,7 @@
 		
 		> .fa5 {
 			@include position(absolute, 0, 0);
-			@include myfont(15px, null, inherit, $color-link);
+			@include font(15px, null, inherit, $color-link);
 		}
 	}
 	
@@ -50,7 +50,7 @@
 	}
 	
 	.phone {
-		@include myfont(16px, null, null, $color);
+		@include font(16px, null, null, $color);
 		text-decoration: none;
 	}
 	.email {
@@ -73,7 +73,7 @@
 		
 		.text {
 			margin-bottom: 10px;
-			@include myfont(12px, null, 16px, $color-gray);
+			@include font(12px, null, 16px, $color-gray);
 		}
 	}
 }

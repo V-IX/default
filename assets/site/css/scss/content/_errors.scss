@@ -14,10 +14,10 @@
 	}
 	
 	.title {
-		@include myfont(35px, 700, 40px);
+		@include font(35px, 700, 40px);
 	}
 	.text {
-		@include myfont(18px, null, 28px);
+		@include font(18px, null, 28px);
 		margin-top: 15px;
 	}
 	.bottom {
@@ -25,7 +25,7 @@
 	}
 	
 	.img {
-		@include mysize(353px, 320px);
+		@include size(353px, 320px);
 		background: url('../img/404.png') no-repeat center;
 	}
 }

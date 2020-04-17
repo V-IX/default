@@ -1,5 +1,10 @@
 <? if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+/**
+ * Class Slider
+ * @property Slider_model model
+ */
+
 class Slider extends ADMIN_Controller {
 	
 	public $page = 'slider';
@@ -19,7 +24,7 @@ class Slider extends ADMIN_Controller {
 		$count = $this->model->getCount();
 		$pagination = admin_pagination($this->page.'/index', $count);
 		
-		$this->data['items'] = $this->model->getItems(null, 'num|DESC', $pagination['per_page'], $pagination['offset']);
+		$this->data['items'] = $this->model->getItems(null, 'num DESC', $pagination['per_page'], $pagination['offset']);
 		
 		$this->load->library('pagination');
 		$this->pagination->initialize($pagination);
@@ -53,9 +58,9 @@ class Slider extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['title'].'"</strong> успешно добавлена!'.$files_error, true));
 				redirect('admin/'.$this->page);
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				if(!empty($files))
 					foreach($files as $file) $this->model->file_delete($file);
 				
@@ -110,8 +115,9 @@ class Slider extends ADMIN_Controller {
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['title'].'"</strong> успешно обновлена!'.$files_error, true));
 				redirect(uri(5) == 'close' ? '/admin/'.$this->page : current_url());
 			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				if(!empty($files))
 				{
 					foreach($files as $key => $file)
@@ -153,7 +159,9 @@ class Slider extends ADMIN_Controller {
 				
 				$error = false;
 			}
-		}  catch(Exception $e) {
+		}
+		catch(Exception $e)
+		{
 			$error = $e->getMessage();
 		}
 		

@@ -26,18 +26,18 @@
 	}
 	
 	.date {
-		@include myfont(13px, null, 15px, $color-gray-lite);
+		@include font(13px, null, 15px, $color-gray-lite);
 		margin-top: 10px;
 		
 		.fa5 {margin-right: 5px;}
 	}
 	
 	.title {
-		@include myfont(18px, 700, 25px);
+		@include font(18px, 700, 25px);
 	}
 	
 	.text {
-		@include myfont(null, null, 21px, $color-gray);
+		@include font(null, null, 21px, $color-gray);
 		margin-top: 10px;
 	}
 	

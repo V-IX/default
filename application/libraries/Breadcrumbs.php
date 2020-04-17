@@ -73,5 +73,6 @@ class Breadcrumbs {
 	public function add($title, $link = '')
 	{
 		$this->segments[$link] = $title;
+		return $this;
 	}
 }

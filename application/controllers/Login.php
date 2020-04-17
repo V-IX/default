@@ -1,5 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Login
+ * @property Users_site_model model
+ * @property Email_model email_model
+ */
+
 class Login extends SITE_Controller {
 
 	protected $model = '';
@@ -43,9 +49,9 @@ class Login extends SITE_Controller {
 				
 				$redirect = $this->input->post('redirect') ?? 'cabinet';
 				redirect($redirect);
-				
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = action_result('error', $e->getMessage());
 			}
 		}
@@ -81,14 +87,14 @@ class Login extends SITE_Controller {
 				$this->model->update(['password' => password_hash($password, PASSWORD_DEFAULT), 'hash' => $hash], ['id' => $user['id']]);
 				
 				$this->load->model('email_model');
-				$this->email_model->send(['password' => $password], 'passwordRecovery', $user['email']);
+				$this->email_model->send(['password' => $password], 'passwordRecovery', 'Восстановление пароля', $user['email']);
 				
 				set_flash('site', action_result('error', fa5s('check mr5') . " Пароль для пользователя <strong>{$login}</strong> был выслан на контактный e-mail"));
 				
 				redirect('login');
-				
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = action_result('error', $e->getMessage());
 			}
 		}

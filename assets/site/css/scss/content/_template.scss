@@ -35,7 +35,7 @@
 	z-index: 700;
 	padding: 15px 0;
 	
-	& .wrapper {
+	.wrapper {
 		@include flex(center, space-between);
 	}
 	
@@ -45,16 +45,16 @@
 	
 	&-contacts {
 		text-align: right;
-		& .phones {
-			& a {
+		.phones {
+			a {
 				@include inline;
-				@include myfont(16px, 700, 1, inherit);
+				@include font(16px, 700, 1, inherit);
 				text-decoration: none;
 			}
 		}
-		& .email {
-			& a {
-				@include myfont(12px, null, null, $color-gray-lite);
+		.email {
+			a {
+				@include font(12px, null, null, $color-gray-lite);
 			}
 		}
 	}
@@ -79,19 +79,19 @@
 	}
 	
 	&-title {
-		@include myfont(24px, 700, 1);
+		@include font(24px, 700, 1);
 		margin-bottom: 5px;
-		& strong {
+		strong {
 			font-weight: 600;
 			color: $color-link;
 		}
 	}
 	
 	&-descr {
-		@include myfont(14px, 300, 15px, $color-gray);
+		@include font(14px, 300, 15px, $color-gray);
 		
-		& strong {
-			@include myfont(13px, 400);
+		strong {
+			@include font(13px, 400);
 		}
 	}
 }
@@ -112,14 +112,14 @@
 		display: table;
 		width: 100%;
 
-		& > ul {
+		> ul {
 			display: table-row;
 
-			& > li {
+			> li {
 				display: table-cell;
 
 				&:last-child {
-					& .tmenu-child {
+					.tmenu-child {
 						left: auto;
 						right: 0;
 					}
@@ -135,7 +135,7 @@
 		&:hover {
 			overflow: visible;
 
-			& .tmenu {
+			.tmenu {
 				&-child {
 					margin-top: 0;
 					opacity: 1;
@@ -152,8 +152,8 @@
 		position: relative;
 		z-index: 5;
 		display: block;
-		@include myfont(16px, 400, 25px, inherit);
-		@include mytext(center, none);
+		@include font(16px, 400, 25px, inherit);
+		@include text(center, none);
 		padding: 15px 10px;
 		white-space: nowrap;
 		transition: all 0.5s ease 0s;
@@ -162,10 +162,10 @@
 			background: rgba(#000, 0.05);
 		}
 
-		& .toggle {
+		.toggle {
 			vertical-align: 1px;
 			margin-left: 5px;
-			@include myfont(13px, null, null, rgba(#000, 0.7));
+			@include font(13px, null, null, rgba(#000, 0.7));
 		}
 	}
 
@@ -179,9 +179,9 @@
 		opacity: 0;
 		transition: all 0.5s ease 0s;
 
-		& a {
+		a {
 			display: block;
-			@include myfont(16px, 600, 20px);
+			@include font(16px, 600, 20px);
 			padding: 10px 20px;
 			transition: all 0.3s ease 0s;
 
@@ -200,31 +200,31 @@
 	padding: 15px 0;
 	color: #ccc;
 	
-	& .wrapper {
+	.wrapper {
 		@include flex(center, space-between);
 	}
 }
 
 .copyright {
-	@include myfont(13px, null, 21px, $color-gray-lite);
+	@include font(13px, null, 21px, $color-gray-lite);
 }
 
 .developer {
-	@include myfont(13px, null, 21px, $color-gray-lite);
+	@include font(13px, null, 21px, $color-gray-lite);
 	
-	& a {
+	a {
 		@include flex(center);
 		color: inherit;
 		text-decoration: none;
 	}
 	
-	& .link {
+	.link {
 		text-decoration: underline;
 		&:hover {text-decoration: none;}
 	}
 	
-	& .icon {
-		@include mysize(26px, 25px);
+	.icon {
+		@include size(26px, 25px);
 		@include icon('developer.png');
 		margin: 0 5px 0 10px;
 	}

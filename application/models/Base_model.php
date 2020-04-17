@@ -1,5 +1,15 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Base_model
+ * @property CI_Loader load
+ * @property CI_Input input
+ * @property CI_Upload upload
+ * @property CI_DB_query_builder db
+ * @property CI_Form_validation form_validation
+ * @property SimpleImage simpleimage
+ */
+
 class Base_model extends CI_Model {
 	
 	protected $table	= null;
@@ -170,16 +180,12 @@ class Base_model extends CI_Model {
 	
 	public function thumb_size()
 	{
-		$this->db->select('thumb_x, thumb_y, thumb_type');
-		$item = $this->query->item('pages_site', ['alias' => $this->page]);
-		
-		if(empty($item)) return array();
-		
-		return array(
-			'x' => $item['thumb_x'],
-			'y' => $item['thumb_y'],
-			'type' => $item['thumb_type'],
-		);
+		$item = $this->db
+			->select('thumb_x as x, thumb_y as y, thumb_type as type')
+			->get_where('pages_site', ['alias' => $this->page])
+			->row_array();
+
+		return $item;
 	}
 	
 	

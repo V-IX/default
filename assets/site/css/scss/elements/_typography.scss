@@ -2,7 +2,7 @@
 --------------------------------------------------------*/
 
 h1, h2, h3, h4, h5, h6 {
-	@include myfont(null, 700, 1.2);
+	@include font(null, 700, 1.2);
 }
 
 h1, .h1 {font-size: $font-h1;}
@@ -13,7 +13,7 @@ h5, .h5 {font-size: $font-h5;}
 h6, .h6 {font-size: $font-h6;}
 
 
-/* FONT WEIGHT & STYLE
+/* FONT WEIGHT STYLE
 ------------------------------------------------------------------------ */
 
 .light {font-weight: 300;}
@@ -64,6 +64,6 @@ sup {
 
 code {
 	padding: 2px 4px;
-	@include myfont(90%, null, null, #c7254e, 'Courier New');
+	@include font(90%, null, null, #c7254e, 'Courier New');
 	background-color: #f9f2f4;
 }

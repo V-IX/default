@@ -1,5 +1,23 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class ADMIN_Controller
+ * @property CI_Loader load
+ * @property CI_Input input
+ * @property CI_Output output
+ * @property CI_Config config
+ * @property CI_Form_validation form_validation
+ * @property CI_Pagination pagination
+ * @property CI_Security security
+ * @property CI_Session session
+ * @property Base_model base_model
+ * @property Settings_model settings_model
+ * @property Adminpage_model adminpage_model
+ * @property Users_admin_model users_admin_model
+ * @property AdminCreator admincreator
+ * @property Breadcrumbs breadcrumbs
+ */
+
 class ADMIN_Controller extends CI_Controller
 {
 	public $data = array();

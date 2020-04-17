@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 24 2019 г., 16:29
+-- Время создания: Апр 17 2020 г., 12:45
 -- Версия сервера: 10.3.13-MariaDB
--- Версия PHP: 7.2.10
+-- Версия PHP: 7.3.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -186,22 +186,23 @@ CREATE TABLE `pages_admin` (
 
 INSERT INTO `pages_admin` (`id`, `id_parent`, `alias`, `name`, `title`, `text`, `link`, `icon`, `num`, `access`, `create_btn`) VALUES
 (1, 0, 'home', 'Главная', 'Домашняя страница', NULL, 'home', 'home', 1, 1, 0),
-(2, 1, 'navigation', 'Навигация', 'Навигация сайта', NULL, 'navigation', 'sitemap', 2, 1, 1),
+(2, 22, 'navigation', 'Навигация', 'Навигация сайта', NULL, 'navigation', 'sitemap', 2, 1, 1),
 (3, 1, 'slider', 'Слайдер', 'Слайдер', NULL, 'slider', 'clone', 1, 1, 1),
-(4, 1, 'footer', 'Футер', 'Ссылки в футере', NULL, 'footer', 'link', 4, 1, 1),
+(4, 22, 'navigation_footer', 'Футер', 'Ссылки в футере', NULL, 'navigation_footer', 'link', 4, 1, 1),
 (5, 0, '//sector', 'Обратная связь', 'Обратная связь', NULL, NULL, 'bell', 2, 1, 0),
 (7, 5, 'feedback', 'Обратная связь', 'Обратная связь', NULL, 'feedback', 'envelope-o', 1, 1, 0),
 (8, 0, '//sector', 'Контент', 'Контент', NULL, NULL, 'bars', 3, 1, 0),
 (10, 8, 'pages', 'Страницы', 'Информационные страницы', NULL, 'pages', 'files-o', 10, 1, 1),
-(11, 0, '//sector', 'Управление сайтом', 'Управление сайтом', NULL, NULL, 'cogs', 10, 1, 0),
+(11, 0, '//sector', 'Управление сайтом', 'Управление сайтом', NULL, NULL, 'cogs', 100, 1, 0),
 (12, 11, 'users', 'Пользователи', 'Пользователи', NULL, 'users', 'users', 1, 1, 0),
 (13, 11, 'pageinfo', 'Разделы сайта', 'Управление разделами сайта', NULL, 'pageinfo', 'desktop', 1, 1, 0),
 (14, 11, 'settings', 'Настройки', 'Настройки сайта', NULL, 'settings', 'cog', 1, 1, 0),
-(15, 0, 'files', 'Менеджер файлов', 'Менеджер файлов', NULL, 'files', 'folder-open', 9, 1, 0),
+(15, 0, 'files', 'Менеджер файлов', 'Менеджер файлов', NULL, 'files', 'folder-open', 99, 1, 0),
 (16, 8, 'news', 'Новости', 'Новости', NULL, 'news', 'bullhorn', 1, 1, 1),
 (19, 8, 'articles', 'Статьи', 'Статьи', NULL, 'articles', 'file-text-o', 2, 1, 1),
 (20, 5, 'reviews', 'Отзывы', 'Отзывы', NULL, 'reviews', 'comment-o', 2, 1, 1),
-(21, 1, 'social', 'Соц сети', 'Социальные сети', NULL, 'social', 'paper-plane-o', 5, 1, 0);
+(21, 22, 'social', 'Соц сети', 'Социальные сети', NULL, 'social', 'paper-plane-o', 5, 1, 0),
+(22, 0, '//sector', 'Шаблон', 'Шаблон', NULL, NULL, 'code', 98, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -314,7 +315,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `title`, `descr`, `img`, `owner`, `details`, `copyright`, `phone`, `phone_extra`, `phone_city`, `address`, `map`, `email`, `email_sender`, `skype`, `meta_title`, `meta_description`, `enable`, `cap_title`, `cap_descr`, `mask_phone`, `mask_phone_extra`, `mask_phone_city`, `img_alt`, `color`, `code_before`, `code_after`, `version`) VALUES
-(1, 'Site Name', 'site description', 'logo.png', 'ООО \"RudzPark\"', 'Зарегистрирован в Торговом реестре \r\nРБ №0000000 от 16.05.2019 г.', '2019 &copy; Sitename\r\nAll rights reserved', '375290000000', '375330000000', '', 'г. Новополоцк, ул. Молодежная, 11-А', '<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3A37b22475ebf4905210c81bbea2e9b5bebd8e9b8e2efb7220068137379cc45932&lang=ru_RU&scroll=true&source=constructor\" width=\"100%\" height=\"315\" frameborder=\"0\"></iframe>', 'narisuemvse.testmail@yandex.ru', 'narisuemvse.testmail@yandex.ru', '', 'Site Meta', 'site description for seo', 1, 'Сайт временно закрыт', 'Приносим свои извинения и гарантируем\r\nв скором времени наладить работу', '+??? (??) ???-??-??', '+??? (??) ???-??-??', '+??? (??) ???-??-??', 'Sitename images', 'D11212', '', '', '0.1');
+(1, 'Site Name', 'site description', 'logo.png', 'ООО \"RudzPark\"', 'Зарегистрирован в Торговом реестре \r\nРБ №0000000 от 16.05.2019 г.', '2019 &copy; Sitename\r\nAll rights reserved', '375290000000', '375330000000', '', 'г. Новополоцк, ул. Молодежная, 11-А', '<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3A37b22475ebf4905210c81bbea2e9b5bebd8e9b8e2efb7220068137379cc45932&lang=ru_RU&scroll=true&source=constructor\" width=\"100%\" height=\"315\" frameborder=\"0\"></iframe>', 'narisuemvse.testmail@yandex.ru', 'narisuemvse.testmail@yandex.ru', '', 'Site Meta', 'site description for seo', 1, 'Сайт временно закрыт', 'Приносим свои извинения и гарантируем\r\nв скором времени наладить работу', '+??? (??) ???-??-??', '+??? (??) ???-??-??', '+??? (??) ???-??-??', 'Sitename images', 'D11212', '<script>$(\'#yandex\').hide()</script>', '', '0.1');
 
 -- --------------------------------------------------------
 
@@ -547,7 +548,7 @@ ALTER TABLE `pages`
 -- AUTO_INCREMENT для таблицы `pages_admin`
 --
 ALTER TABLE `pages_admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `pages_site`

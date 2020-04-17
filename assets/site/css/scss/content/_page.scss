@@ -14,12 +14,12 @@
 	}
 	
 	&-title {
-		@include myfont(30px, 700, 34px);
+		@include font(30px, 700, 34px);
 	}
 	
 	&-brief {
 		margin-top: 10px;
-		@include myfont(14px, null, 20px, $color-gray);
+		@include font(14px, null, 20px, $color-gray);
 	}
 	&-text {
 		margin-top: 50px;
@@ -48,7 +48,7 @@
 --------------------------------------------------------*/
 
 .breadcrumbs {
-	@include myfont(12px, null, null, $color-gray-lite);
+	@include font(12px, null, null, $color-gray-lite);
 	margin-bottom: 10px;
 	&-in {
 		@include ellipsis;
@@ -57,7 +57,7 @@
 		margin: 0 5px;
 		color: $color-link;
 	}
-	& a {
+	a {
 		color: $color-link;
 	}
 }
@@ -72,18 +72,18 @@
 	text-align: center;
 	font-size: 0;
 	
-	& li {
-		@include myfont(14px, 700);
+	li {
+		@include font(14px, 700);
 	}
 	
-	& a {
+	a {
 		display: block;
 		text-decoration: none;
 		transition: color 0.3s ease 0s;
 	}
 	
 	&-num a {
-		@include mysize(38px, 38px);
+		@include size(38px, 38px);
 		color: $color-link;
 		line-height: 38px;
 		transition: all 0.3s ease 0s;
@@ -102,27 +102,27 @@
 	}
 	
 	&-nav a {
-		@include myfont(13px, 600);
+		@include font(13px, 600);
 		color: $color-gray;
-		& .fa {
+		.fa {
 			vertical-align: 1px;
 			font-size: 10px;
 		}
-		& span {
+		span {
 			text-decoration: underline;
 		}
 		&:hover {
-			& span {text-decoration: none;}
+			span {text-decoration: none;}
 		}
 	}
 	
 	&-left {
 		margin-right: 15px;
-		& .fa {margin-right: 5px;}
+		.fa {margin-right: 5px;}
 	}
 	&-right {
 		margin-left: 15px;
-		& .fa {margin-left: 5px;}
+		.fa {margin-left: 5px;}
 	}
 	
 }

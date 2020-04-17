@@ -15,14 +15,14 @@ table, tr, td, thead, tbody, tfoot
 }
 
 html, body {
-	@include mysize(100%, 100%);
+	@include size(100%, 100%);
 }
 
 body {
 	display: flex;
 	flex-direction: column;
 	
-	@include myfont($font-size, null, null, $color, $font);
+	@include font($font-size, null, null, $color, $font);
 	
 	&.overflow {
 		overflow: hidden;
@@ -31,7 +31,7 @@ body {
 }
 
 input, textarea, button, select {
-	@include myfont($font-size, null, null, $color, $font);
+	@include font($font-size, null, null, $color, $font);
 }
 
 button {cursor: pointer;}
@@ -52,11 +52,11 @@ ul, ol, li {
 }
 
 ::-webkit-input-placeholder {
-	@include myfont($font-size, null, null, $color-gray-lite, $font);
+	@include font($font-size, null, null, $color-gray-lite, $font);
 }
 
 :-moz-placeholder {
-	@include myfont($font-size, null, null, $color-gray-lite, $font);
+	@include font($font-size, null, null, $color-gray-lite, $font);
 }
 
 :focus {

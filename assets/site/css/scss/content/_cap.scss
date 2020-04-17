@@ -19,21 +19,21 @@
 	border-bottom: 1px solid #e5e5e5;
 	
 	.title {
-		@include myfont(20px, 700, 1);
+		@include font(20px, 700, 1);
 		text-transform: uppercase;
 	}
 	.descr {
 		margin-top: 5px;
-		@include myfont(14px, null, 20px, $color-gray-lite);
+		@include font(14px, null, 20px, $color-gray-lite);
 	}
 }
 
 .cap-bottom {
 	.title {
-		@include myfont(16px, 700, 25px);
+		@include font(16px, 700, 25px);
 	}
 	.descr {
 		margin-top: 5px;
-		@include myfont(14px, null, 20px, $color-gray);
+		@include font(14px, null, 20px, $color-gray);
 	}
 }

@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Articles
+ * @property Articles_model articles
+ */
+
 class Articles extends SITE_Controller {
 	
 	public	$page = 'articles';
@@ -9,8 +14,7 @@ class Articles extends SITE_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->model('articles_model');
-		$this->model = $this->articles_model;
+		$this->load->model('articles_model', 'articles');
 		
 		$this->init($this->page);
 		
@@ -21,10 +25,10 @@ class Articles extends SITE_Controller {
 	{
 		$params = ['visibility' => 1, 'pub_date <=' => date('Y-m-d H:i:s')];
 		
-		$count = $this->model->getCount($params);
+		$count = $this->articles->getCount($params);
 		$pagination = site_pagination($this->page, $count);
 		
-		$this->data['items'] = $this->model->getItems($params, 'pub_date DESC', $pagination['per_page'], $pagination['offset']);
+		$this->data['items'] = $this->articles->getItems($params, 'pub_date DESC', $pagination['per_page'], $pagination['offset']);
 		
 		$this->load->library('pagination');
 		$this->pagination->initialize($pagination);
@@ -39,13 +43,13 @@ class Articles extends SITE_Controller {
 		$date = date('Y-m-d H:i:s');
 		$params = ['alias' => uri(2), 'visibility' => 1, 'pub_date <=' => $date];
 		
-		$item = $this->model->getItem($params);
+		$item = $this->articles->getItem($params);
 		if(empty($item)) show_404();
 		
 		$this->data['item'] = $item;
 		
 		$similars = ['id !=' => $item['id'], 'visibility' => 1, 'pub_date <=' => $date];
-		$this->data['items'] = $this->model->getItems($similars, 'RANDOM', 3);
+		$this->data['items'] = $this->articles->getItems($similars, 'RANDOM', 3);
 		
 		$this->breadcrumbs->add($item['title'], $this->page.'/'.$item['alias']);
 		

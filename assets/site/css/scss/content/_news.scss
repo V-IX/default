@@ -19,7 +19,7 @@
 		img {
 			display: block;
 			width: 100%;
-			@include transition(all 0.3s ease 0s);
+			@include transition;
 		}
 	}
 	.descr {
@@ -28,19 +28,19 @@
 	}
 	
 	.date {
-		@include myfont(13px, null, 15px, $color-gray-lite);
+		@include font(13px, null, 15px, $color-gray-lite);
 		margin-bottom: 10px;
 		
 		.fa5 {margin-right: 5px;}
 	}
 	
 	.title {
-		@include myfont(18px, 700, 25px);
+		@include font(18px, 700, 25px);
 		text-decoration: underline;
 	}
 	
 	.brief {
-		@include myfont(null, null, 21px, $color-gray);
+		@include font(null, null, 21px, $color-gray);
 		margin-top: 10px;
 	}
 	
@@ -81,7 +81,7 @@
 		margin-bottom: 20px;
 	}
 	&-date {
-		@include myfont(null, null, 20px, $color-gray);
+		@include font(null, null, 20px, $color-gray);
 		margin-top: 10px;
 		
 		.fa5 {margin-right: 5px;}
@@ -91,7 +91,7 @@
 .news-similars {
 	
 	&-title {
-		@include myfont(20px, 700, 25px);
+		@include font(20px, 700, 25px);
 		margin-bottom: 25px;
 	}
 	&-list {
@@ -113,21 +113,21 @@
 			img {
 				display: block;
 				width: 100%;
-				@include transition(all 0.3s ease 0s);
+				@include transition;
 			}
 		}
 		.date {
-			@include myfont(12px, null, 15px, $color-gray-lite);
+			@include font(12px, null, 15px, $color-gray-lite);
 			margin-bottom: 5px;
 			
 			.fa5 {margin-right: 5px;}
 		}
 		.title {
-			@include myfont(16px, 700, 22px);
+			@include font(16px, 700, 22px);
 			text-decoration: underline;
 		}
 		.brief {
-			@include myfont(13px, null, 16px, $color-gray);
+			@include font(13px, null, 16px, $color-gray);
 			margin-top: 5px;
 			max-height: 48px;
 			overflow: hidden;

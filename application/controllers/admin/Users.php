@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Users
+ * @property Users_admin_model model
+ */
+
 class Users extends ADMIN_Controller {
 	
 	public $page = 'users';
@@ -44,9 +49,9 @@ class Users extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Пользователь <strong>"'.$insert['login'].'"</strong> успешно добавлен!', true));
 				redirect('admin/'.$this->page);
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = $e->getMessage();
 			}
 		}
@@ -81,9 +86,9 @@ class Users extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Пользователь <strong>"'.$insert['login'].'"</strong> успешно обновлен!', true));
 				redirect(uri(5) == 'close' ? '/admin/'.$this->page : current_url());
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = $e->getMessage();
 			}
 		}
@@ -119,9 +124,9 @@ class Users extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Ваш пароль успешно изменен!', true));
 				redirect('admin/'.$this->page);
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = $e->getMessage();
 			}
 		}
@@ -165,7 +170,9 @@ class Users extends ADMIN_Controller {
 				$this->model->delete($id);
 				$error = false;
 			}
-		}  catch(Exception $e) {
+		}
+		catch(Exception $e)
+		{
 			$error = $e->getMessage();
 		}
 		

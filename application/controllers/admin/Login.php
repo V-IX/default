@@ -1,5 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Login
+ * @property Users_admin_model users
+ * @property Email_model email_model
+ */
+
 class Login extends ADMIN_Controller {
 	
 	public function __construct ()
@@ -38,9 +44,9 @@ class Login extends ADMIN_Controller {
 				set_flash('result', action_result('success', fa('check mr5') . ' Добро пожаловать, <strong>' . $user['name'] . '</strong>! Команда <a href="http://narisuemvse.by" target="_blank">Narisuemvse.by</a> желают Вам ' . $this->users->time_period() . '!'));
 				
 				redirect('admin');
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = action_result('error', $e->getMessage());
 			}
 		}
@@ -79,13 +85,13 @@ class Login extends ADMIN_Controller {
 				$this->users->update(['password' => password_hash($password, PASSWORD_DEFAULT), 'hash' => $hash], ['login' => $login]);
 				
 				$this->load->model('email_model');
-				$this->email_model->send(['password' => $password], 'passwordRecovery', $user['email']);
+				$this->email_model->send(['password' => $password], 'passwordRecovery', 'Восстановление пароля', $user['email']);
 				
 				set_flash('result', action_result('info', fa('check mr5') . " Пароль для пользователя <strong>{$login}</strong> был выслан на контактный e-mail"));
 				redirect('admin/login');
-				
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = action_result('error', $e->getMessage());
 			}
 		}

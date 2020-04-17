@@ -8,7 +8,7 @@
 	margin: 0 auto;
 	display: none;
 	opacity: 0;
-	@include transition(all 0.3s ease 0s);
+	@include transition;
 	
 	&.show {
 		top: 0;
@@ -18,7 +18,7 @@
 	&-container {
 		display: none;
 		@include position(fixed, 0, 0, null, null, 1000);
-		@include mysize(100%, 100%);
+		@include size(100%, 100%);
 		overflow: auto;
 		padding: 30px 10px;
 		
@@ -27,7 +27,7 @@
 		}
 	}
 	&-background {
-		@include mysize(100%, 100%);
+		@include size(100%, 100%);
 		@include position(absolute, 0, 0);
 		background: rgba(#000, 0.7);
 	}
@@ -36,10 +36,10 @@
 .popup-close {
 	@include flex(center, center);
 	@include position(absolute, null, 0, 0);
-	@include mysize(40px, 40px);
-	@include myfont(16px, null, null, $color-gray-lite);
-	@include mytext(center, none);
-	@include transition(all 0.3s ease 0s);
+	@include size(40px, 40px);
+	@include font(16px, null, null, $color-gray-lite);
+	@include text(center, none);
+	@include transition;
 	
 	&:hover {color: $color;}
 }
@@ -48,11 +48,11 @@
 	text-align: center;
 	
 	.title {
-		@include myfont(20px, 700, 25px);
+		@include font(20px, 700, 25px);
 		text-transform: uppercase;
 	}
 	.brief {
-		@include myfont(null, null, 21px, $color-gray-lite);
+		@include font(null, null, 21px, $color-gray-lite);
 		margin-top: 5px;
 	}
 	

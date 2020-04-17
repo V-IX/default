@@ -1,5 +1,25 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class SITE_Controller
+ * @property CI_Loader load
+ * @property CI_Input input
+ * @property CI_Output output
+ * @property CI_Config config
+ * @property CI_DB_query_builder db
+ * @property CI_Form_validation form_validation
+ * @property CI_Pagination pagination
+ * @property CI_Security security
+ * @property CI_Session session
+ * @property Base_model base_model
+ * @property Settings_model settings_model
+ * @property Pageinfo_model pageinfo_model
+ * @property Navigation_model navigation_model
+ * @property Users_site_model users_site_model
+ * @property Social_model social_model
+ * @property Breadcrumbs breadcrumbs
+ */
+
 class SITE_Controller extends CI_Controller
 {
 	public $data = array();
@@ -33,8 +53,8 @@ class SITE_Controller extends CI_Controller
 			'siteinfo'	=> $siteinfo,
 			'pageinfo'	=> $this->site_page($page),
 			
-			'tmenu'		=> $this->nav('top'),
-			'fmenu'		=> $this->nav('footer'),
+			'nav_header'	=> $this->nav('top'),
+			'nav_footer'	=> $this->nav('footer'),
 			
 			'socials'	=> $this->social(),
 			

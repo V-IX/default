@@ -5,7 +5,7 @@
 	&-group {margin-bottom: $form-margin;}
 	
 	&-caption {
-		@include myfont(14px, 700, 16px);
+		@include font(14px, 700, 16px);
 		margin-bottom: $form-submargin;
 	}
 	
@@ -17,7 +17,7 @@
 	
 	&-error {
 		margin-top: $form-submargin;
-		@include myfont(12px, 400);
+		@include font(12px, 400);
 		color: $color-error;
 	}
 	

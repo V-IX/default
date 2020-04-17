@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class About
+ * @property Pages_model pages
+ */
+
 class About extends SITE_Controller {
 	
 	public function index()

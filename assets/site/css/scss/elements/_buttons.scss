@@ -3,12 +3,12 @@
 
 .btn {
 	@include inline;
-	@include mysize(null, $form-height);
-	@include myfont(14px, 400, $form-height, #fff);
-	@include mytext(center, none);
+	@include size(null, $form-height);
+	@include font(14px, 400, $form-height, #fff);
+	@include text(center, none);
 	padding: 0 25px;
 	background: $color-link;
-	@include transition(all 0.3s ease 0s);
+	@include transition;
 	
 	&:hover {
 		background: $color-link-hover;

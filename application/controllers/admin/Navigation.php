@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Navigation
+ * @property Navigation_model model
+ */
+
 class Navigation extends ADMIN_Controller {
 
 	public $page = 'navigation';

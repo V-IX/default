@@ -36,13 +36,13 @@
 	
 	a {
 		@include inline;
-		@include myfont(null, null, 22px, $color);
+		@include font(null, null, 22px, $color);
 		position: relative;
 		padding-left: 30px;
 		
 		.fa5 {
 			@include position(absolute, 0, 0);
-			@include myfont(16px, null, inherit, $color-link);
+			@include font(16px, null, inherit, $color-link);
 		}
 	}
 }

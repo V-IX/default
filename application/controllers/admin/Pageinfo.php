@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Pageinfo
+ * @property Pageinfo_model model
+ */
+
 class Pageinfo extends ADMIN_Controller {
 
 	public $page = 'pageinfo';
@@ -21,7 +26,7 @@ class Pageinfo extends ADMIN_Controller {
 		$count = $this->model->getCount($params);
 		$pagination = admin_pagination(uri(2).'/index', $count);
 		
-		$this->data['items'] = $this->model->getItems(null, 'title|ASC', $pagination['per_page'], $pagination['offset']);
+		$this->data['items'] = $this->model->getItems(null, 'title ASC', $pagination['per_page'], $pagination['offset']);
 		
 		$this->load->library('pagination');
 		$this->pagination->initialize($pagination);
@@ -60,9 +65,9 @@ class Pageinfo extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Раздел <strong>"'.$insert['name'].'"</strong> успешно обновлен!', true));
 				redirect(uri(5) == 'close' ? '/admin/'.$this->page : current_url());
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				if(!empty($file)) $this->model->file_delete($file);
 				$this->data['error'] = $e->getMessage();
 			}

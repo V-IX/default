@@ -303,6 +303,9 @@ if ( ! function_exists('navlink'))
 		
 		if(!empty($item['current']) && $item['current'])
 			$params['class'] .= ' current';
+
+		if(!empty($item['target']) && $item['target'] != '_self')
+			$params['target'] = $item['target'];
 		
 		if($item['noindex'] == 1)
 			$params['rel'] = 'nofollow';

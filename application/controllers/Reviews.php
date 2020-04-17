@@ -1,5 +1,10 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Reviews
+ * @property Reviews_model reviews
+ */
+
 class Reviews extends SITE_Controller {
 	
 	public	$page = 'reviews';
@@ -9,8 +14,7 @@ class Reviews extends SITE_Controller {
 	{
 		parent::__construct();
 		
-		$this->load->model('reviews_model');
-		$this->model = $this->reviews_model;
+		$this->load->model('reviews_model', 'reviews');
 	}
 	
 	public function index()
@@ -19,10 +23,10 @@ class Reviews extends SITE_Controller {
 		
 		$params = ['visibility' => 1, 'pub_date <=' => date('Y-m-d H:i:s')];
 		
-		$count = $this->model->getCount($params);
+		$count = $this->reviews->getCount($params);
 		$pagination = site_pagination($this->page, $count);
 		
-		$this->data['items'] = $this->model->getItems($params, 'pub_date DESC', $pagination['per_page'], $pagination['offset']);
+		$this->data['items'] = $this->reviews->getItems($params, 'pub_date DESC', $pagination['per_page'], $pagination['offset']);
 		
 		$this->load->library('pagination');
 		$this->pagination->initialize($pagination);

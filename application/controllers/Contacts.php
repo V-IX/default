@@ -1,5 +1,11 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Contacts
+ * @property Feedback_model feedback
+ * @property Email_model email_model
+ */
+
 class Contacts extends SITE_Controller {
 	
 	public $page = 'contacts';

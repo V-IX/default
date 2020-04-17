@@ -91,9 +91,9 @@
 						$nav['link'] = $nav['link'] != '' ? 'admin/'.$nav['link'] : 'js';
 					?>
 					<?=anchor($nav['link'], fa($nav['icon'].' fa-fw').' '.$nav['name'], $params);?>
-					<? if(!empty($nav['childs'])) { ?>
+					<? if(!empty($nav['items'])) { ?>
 						<ul class="submenu">
-						<? foreach($nav['childs'] as $child) { ?>
+						<? foreach($nav['items'] as $child) { ?>
 							<li>
 								<? $current = uri(2) == $child['alias'] ? 'current' : '';?>
 								<? $child['link'] = $child['link'] != '' ? 'admin/'.$child['link'] : 'js';

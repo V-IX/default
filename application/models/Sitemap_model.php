@@ -1,18 +1,25 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Class Sitemap_model
+ * @property CI_DB_query_builder db
+ */
+
 class Sitemap_model extends CI_Model {
-	
+
+	protected $pages = [];
+
 	public function generate()
 	{
-		$pages = $this->_sitemap_arr();
-		
+		$this->sitemap_pages();
+
 		$file_name = 'sitemap.xml';
-		
+
 		$dom = new domDocument("1.0", "utf-8");
 		$tagRoot = $dom->createElement('urlset');
 		$tagRoot->setAttribute('xmlns', 'http://www.sitemaps.org/schemas/sitemap/0.9');
-		
-		foreach($pages as $page)
+
+		foreach($this->pages as $page)
 		{
 			$tagUrl = $dom->createElement('url');
 			foreach($page as $value => $label)
@@ -22,26 +29,24 @@ class Sitemap_model extends CI_Model {
 			}
 			$tagRoot->appendChild($tagUrl);
 		}
-		
+
 		$dom->appendChild($tagRoot);
-		
+
 		$dom->save($file_name);
-		
+
 		redirect('/sitemap.xml');
-		
-		var_dump($pages); die;
+
+		var_dump($this->pages); die;
 	}
-	
-	protected function _sitemap_arr() 
+
+	protected function sitemap_pages()
 	{
-		$return = [];
-		
 		$pages = [
 			[
 				'alias' => '',
 				'home'	=> true,
 				'table' => null,
-				'condition' => null,
+				'condition' => [],
 			],
 			[
 				'alias' => 'news',
@@ -65,13 +70,13 @@ class Sitemap_model extends CI_Model {
 				'alias' => 'reviews',
 				'home'	=> true,
 				'table' => null,
-				'condition' => null,
+				'condition' => [],
 			],
 			[
 				'alias' => 'contacts',
 				'home'	=> true,
 				'table' => null,
-				'condition' => null,
+				'condition' => [],
 			],
 		];
 
@@ -79,7 +84,7 @@ class Sitemap_model extends CI_Model {
 		{
 			if($page['home'])
 			{
-				$return[] = [
+				$this->pages[] = [
 					'loc' => base_url($page['alias']),
 					'lastmod' => date('Y-m-d\TH:i:sP'),
 					'priority' => 1,
@@ -87,10 +92,10 @@ class Sitemap_model extends CI_Model {
 			}
 			if($page['table'])
 			{
-				$items = $this->query->items($page['table'], false, false, false, $page['condition']);
+				$items = $this->db->get_where($page['table'], $page['condition'])->result_array();
 				foreach($items as $item)
 				{
-					$return[] = [
+					$this->pages[] = [
 						'loc' => base_url($page['alias'].'/'.$item['alias']),
 						'lastmod' => !empty($item['mod_date'])
 							? date('Y-m-d\TH:i:sP', strtotime($item['mod_date']))
@@ -100,7 +105,5 @@ class Sitemap_model extends CI_Model {
 				}
 			}
 		}
-		
-		return $return;
 	}
 }

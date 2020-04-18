@@ -24,7 +24,7 @@ class Email_model extends Base_Model {
 	public function send($data, $view, $title, $to = null, $template = true)
 	{
 		$this->db->select('email, email_sender, title, descr, img');
-		$site = $data['site'] = $this->query->item('settings');
+		$site = $data['site'] = $this->db->get('settings')->row_array();
 		
 		$data['tpl'] = $this->tpl;
 		
@@ -50,7 +50,7 @@ class Email_model extends Base_Model {
 	public function preview($data, $view, $template = true)
 	{
 		$this->db->select('email, email_sender, title, descr, img');
-		$site = $data['site'] = $this->query->item('settings');
+		$site = $data['site'] = $this->db->get('settings')->row_array();
 		
 		$data['tpl'] = $this->tpl;
 		

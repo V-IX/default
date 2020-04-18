@@ -1,8 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Footer extends ADMIN_Controller {
+/**
+ * Class Navigation_footer
+ * @property Navigation_model model
+ */
 
-	public $page = 'footer';
+class Navigation_footer extends ADMIN_Controller {
+
+	public $page = 'navigation_footer';
 	public $nesting = false;
 	
 	private $view = 'navigation';
@@ -41,9 +46,9 @@ class Footer extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['title'].'"</strong> успешно добавлена!', true));
 				redirect('admin/'.$this->page);
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = $e->getMessage();
 			}
 		}
@@ -78,9 +83,9 @@ class Footer extends ADMIN_Controller {
 				
 				set_flash('result', action_result('success', fa('check mr5').' Запись <strong>"'.$insert['title'].'"</strong> успешно обновлена!', true));
 				redirect(uri(5) == 'close' ? '/admin/'.$this->page : current_url());
-			
-			} catch(Exception $e) {
-				
+			}
+			catch(Exception $e)
+			{
 				$this->data['error'] = $e->getMessage();
 			}
 		}
@@ -114,7 +119,9 @@ class Footer extends ADMIN_Controller {
 				$this->model->delete($id);
 				$error = false;
 			}
-		}  catch(Exception $e) {
+		}
+		catch(Exception $e)
+		{
 			$error = $e->getMessage();
 		}
 		

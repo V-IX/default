@@ -1,5 +1,5 @@
 <section class="cabinet page-content">
-	<div class="wrapper">
+	<div class="container">
 		
 		<? $this->load->view('site/common/warning');?>
 		

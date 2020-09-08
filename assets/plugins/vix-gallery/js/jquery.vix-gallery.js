@@ -7,28 +7,27 @@
 */
 (function( $ ) {
 	$.fn.gallery = function(options) {
-		var settings = $.extend({
+		const settings = $.extend({
 			imgWidth: 810,
 			background: false,
 			captionClass: 'vix-caption',
 			imageArray: [],
 			activeImage: 0
 		}, options);
-		
-		var jQueryMatchedObj = $(this);
-		
-		$(document).click(function(event) 
-		{
-			if ($(event.target).closest(".vix-modal").length) return;
-			removeModal();
-			event.stopPropagation();
-		});
-		
-		$(document).ready(function(){
-			$(this).keydown(function(event){
-                if (event.which === 27) removeModal();
-            });
-		});
+
+		const jQueryMatchedObj = $(this);
+
+		$(document)
+			.on('click', function(event)
+			{
+				if ($(event.target).closest(".vix-modal").length) return;
+				removeModal();
+				event.stopPropagation();
+			})
+			.on('keydown', function(event)
+			{
+				if (event.which === 27) removeModal();
+			});
 		
 		function init()
 		{
@@ -41,7 +40,7 @@
 			settings.imageArray.length = 0;
 			settings.activeImage = 0;
 			
-			for (var i = 0; i < obj.size(); i++ ) {
+			for (let i = 0; i < obj.length; i++ ) {
 				settings.imageArray.push([obj.eq(i).attr('href'),
 					obj.eq(i).attr('title'),
 					obj.eq(i).find('.'+settings.captionClass).text(),
@@ -60,16 +59,20 @@
 		{
 			$('.vix-loader').show();
 			$('.vix-image').hide();
-			var objImagePreloader = new Image();
+
+			let objImagePreloader = new Image();
+
 			objImagePreloader.onload = function() {
 				$('.vix-image').attr('src',settings.imageArray[settings.activeImage][0]);
 				_resize_container_image_box();
 				objImagePreloader.onload=function(){};
 			};
+
 			objImagePreloader.src = settings.imageArray[settings.activeImage][0];
 		}
 		
-		function _resize_container_image_box() {
+		function _resize_container_image_box()
+		{
 			_show_image_data();
 			setTitle();
 			
@@ -77,7 +80,8 @@
 			_show_image();
 		}
 		
-		function _show_image() {
+		function _show_image()
+		{
 			$('.vix-image').fadeIn('fast');
 			_set_navigation();
 		}
@@ -87,10 +91,12 @@
 			$('.vix-image-caption').text(settings.imageArray[settings.activeImage][2])
 		}
 		
-		function _set_navigation() {
+		function _set_navigation()
+		{
 			// Show the prev button, if not the first image in set
-			$('.vix-btn-prev').unbind()
-				.bind('click',function() {
+			$('.vix-btn-prev')
+				.off('click')
+				.on('click',function() {
 					if ( settings.activeImage === 0 ) {
 						settings.activeImage = settings.imageArray.length - 1;
 					} else {
@@ -100,8 +106,9 @@
 					return false;
 				});
 				
-			$('.vix-btn-next, .vix-image').unbind()
-				.bind('click',function() {
+			$('.vix-btn-next, .vix-image')
+				.off()
+				.on('click',function() {
 					if ( settings.activeImage === settings.imageArray.length - 1 ) {
 						settings.activeImage = 0;
 					} else {
@@ -115,12 +122,15 @@
 		function createModal()
 		{
 			// Создаем подложку
-			$('body').width($(document).width())
+			$('body')
+				.width($(document).width())
 				.css('overflow', 'hidden')
 				.append('<div class="vix-overlay"></div>');
 
-			var vixOverlay = $('.vix-overlay');
-			if(settings.background) {
+			let  vixOverlay = $('.vix-overlay');
+
+			if(settings.background)
+			{
 				vixOverlay.css('background-color', settings.background);
 			}
 			
@@ -139,7 +149,9 @@
 		{
 			$('.vix-overlay').fadeOut('fast', function(){
 				$(this).remove();
-				$('body').css('overflow', 'auto')
+
+				$('body')
+					.css('overflow', 'auto')
 					.width("auto")
 			})
 		}
@@ -149,6 +161,9 @@
 			$('.vix-title').text('Фотография '+ (settings.activeImage+1) +' из '+ settings.imageArray.length);
 			$('.vix-image-date').text(settings.imageArray[settings.activeImage][3]);
 		}
-		return $(this).unbind('click').click(init);
+
+		return $(this)
+			.off('click')
+			.on('click', init);
 	};
 })(jQuery);

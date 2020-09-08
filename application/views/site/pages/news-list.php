@@ -1,5 +1,5 @@
 <div class="page-content">
-	<div class="wrapper">
+	<div class="container">
 		<div class="page-top">
 			<?=$this->breadcrumbs->create_links();?>
 			<h1 class="page-title"><?=$pageinfo['title'];?></h1>
@@ -10,10 +10,10 @@
 		<? foreach($items as $item) { ?>
 			<li>
 				<a href="<?=base_url($this->page.'/'.$item['alias']);?>" class="news-item">
-					<div class="img">
+					<div class="image">
 						<?=check_img(PATH_UPLOADS.'/'.$this->page.'/thumb/'.$item['img'], ['alt' => $item['img_alt']]);?>
 					</div>
-					<div class="descr">
+					<div class="description">
 						<div class="date">
 							<?=fa5r('calendar-alt');?>
 							<?=translate_date($item['pub_date']);?>

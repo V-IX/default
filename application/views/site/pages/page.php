@@ -1,5 +1,5 @@
 <div class="page-content">
-	<div class="wrapper">
+	<div class="container">
 		<?=$this->breadcrumbs->create_links();?>
 		<div class="news-content-top">
 			<h1 class="page-title"><?=$item['title'];?></h1>

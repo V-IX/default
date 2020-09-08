@@ -1,5 +1,5 @@
 <div class="page-content">
-	<div class="wrapper">
+	<div class="container">
 		<div class="page-top">
 			<?=$this->breadcrumbs->create_links();?>
 			<h1 class="page-title"><?=$pageinfo['title'];?></h1>
@@ -10,10 +10,10 @@
 		<? foreach($items as $item) { ?>
 			<li>
 				<div class="reviews-item">
-					<div class="img">
+					<div class="image">
 						<?=check_img(PATH_UPLOADS.'/'.$this->page.'/thumb/'.$item['img'], ['alt' => $siteinfo['img_alt']], 'user.png');?>
 					</div>
-					<div class="descr">
+					<div class="description">
 						<div class="title"><?=$item['name'];?></div>
 						<div class="date">
 							<?=fa5r('calendar-alt');?>

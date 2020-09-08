@@ -9,7 +9,7 @@
 .reviews-item {
 	@include flex(flex-start);
 	
-	.img {
+	.image {
 		position: relative;
 		z-index: 5;
 		width: 150px;
@@ -20,7 +20,7 @@
 			width: 100%;
 		}
 	}
-	.descr {
+	.description {
 		width: 100%;
 		padding-left: 180px;
 	}

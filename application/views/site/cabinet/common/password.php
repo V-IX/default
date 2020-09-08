@@ -1,5 +1,5 @@
 <div class="page-content">
-	<div class="wrapper">
+	<div class="container">
 		<div class="page-top">
 			<?=$this->breadcrumbs->create_links();?>
 			<h1 class="page-title"><?=$pageinfo['title'];?></h1>

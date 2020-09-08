@@ -1,7 +1,7 @@
 <? if(!empty($slider)) $this->load->view('site/common/slider');?>
 
 <section class="home-about">
-	<div class="wrapper">
+	<div class="container">
 		<h1 class="title"><?=$pageinfo['title'];?></h1>
 		<div class="text">
 			<div class="text-editor">
@@ -15,7 +15,7 @@
 </section>
 
 <section class="home-social">
-	<div class="wrapper">
+	<div class="container">
 		<div class="title">Мы в социальных сетях</div>
 		<ul class="list">
 		<? foreach($socials as $social) { ?>

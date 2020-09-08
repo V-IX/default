@@ -14,16 +14,14 @@
 		color: inherit;
 		text-decoration: none;
 		
-		.img {
+		.image {
 			@include position(absolute, 0, 0);
 			@include size(100%, 100%);
 			background: transparent no-repeat center;
 			background-size: cover;
-			
-			&-mob {display: none;}
 		}
 		
-		.wrapper {
+		.container {
 			@include flex;
 			padding: 30px 100px;
 			
@@ -36,7 +34,7 @@
 			max-width: 100%;
 		}
 		
-		.descr {
+		.description {
 			+ .more {margin-top: 20px;}
 		}
 		.title {

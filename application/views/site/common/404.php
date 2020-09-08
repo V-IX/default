@@ -1,5 +1,5 @@
 <div class="errors">
-	<div class="wrapper">
+	<div class="container">
 		<div class="errors-content">
 			<div class="img"></div>
 			<div class="descr">

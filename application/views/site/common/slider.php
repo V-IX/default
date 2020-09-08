@@ -5,12 +5,13 @@
 		<? $tag_open = $slide['link'] != '' ? '<a href="'.(preg_match('#^(\w+:)?//#i', $slide['link']) ? $slide['link'] : base_url($slide['link'])).'" class="'.$tag_class.'" >' : '<div class="'.$tag_class.'">'?>
 		<? $tag_close = $slide['link'] != '' ? '</a>' : '</div>'?>
 		<?=$tag_open;?>
-			<div class="img img-pc" style="background-image: url('<?=base_url('assets/uploads/slider/thumb/'.$slide['img']);?>');"></div>
-			<div class="img img-mob" style="background-image: url('<?=base_url('assets/uploads/slider/thumb/'.$slide['mobile']);?>');"></div>
+			<div class="image"
+			 data-slider-pc="<?=base_url(PATH_UPLOADS.'/slider/thumb/'.$slide['img']);?>"
+			 data-slider-mobile="<?=base_url(PATH_UPLOADS.'/slider/thumb/'.$slide['mobile']);?>"></div>
 			<? if($slide['show_text']) { ?>
-			<div class="wrapper wrapper-<?=$slide['align'];?>">
+			<div class="container container-<?=$slide['align'];?>">
 				<div class="inner">
-					<div class="descr">
+					<div class="description">
 						<div class="title"><?=nl2br($slide['title']);?></div>
 						<? if($slide['text']) { ?><div class="text"><?=nl2br($slide['text']);?></div><? } ?>
 					</div>
@@ -35,5 +36,20 @@
 		navText: ['<?=fa5s('angle-left');?>', '<?=fa5s('angle-right');?>'],
 		dots: true,
 		lazyLoad: true
+	});
+
+	$(function () {
+		let attr = $(window).width() > 768
+			? 'data-slider-pc'
+			: 'data-slider-mobile';
+
+		$('#homeSlider .image').each(function(){
+
+			let bg = $(this).attr(attr);
+			$(this)
+				.css('background-image', 'url(' + bg + ')')
+				.addClass('show');
+
+		});
 	});
 </script>

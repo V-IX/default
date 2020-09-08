@@ -1,5 +1,5 @@
 <div class="page-content">
-	<div class="wrapper">
+	<div class="container">
 		<?=$this->breadcrumbs->create_links();?>
 		<div class="news-content">
 			<div class="news-content-left">
@@ -27,16 +27,16 @@
 				</div>
 			</div>
 			<div class="news-content-right">
-				<div class="news-similars">
-					<div class="news-similars-title">Читайте также</div>
-					<ul class="news-similars-list">
+				<div class="news-similar">
+					<div class="news-similar-title">Читайте также</div>
+					<ul class="news-similar-list">
 					<? foreach($items as $new) { ?>
 						<li>
-							<a href="<?=base_url($this->page.'/'.$new['alias']);?>" class="news-similars-item">
-								<div class="img">
+							<a href="<?=base_url($this->page.'/'.$new['alias']);?>" class="news-similar-item">
+								<div class="image">
 									<?=check_img(PATH_UPLOADS.'/'.$this->page.'/thumb/'.$new['img'], ['alt' => $new['img_alt']]);?>
 								</div>
-								<div class="descr">
+								<div class="description">
 									<div class="date">
 										<?=fa5r('calendar-alt');?>
 										<?=translate_date($new['pub_date']);?>

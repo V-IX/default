@@ -1,7 +1,7 @@
-/* WRAPPER
+/* CONTAINER
 --------------------------------------------------------*/
 
-.wrapper {
+.container {
 	position: relative;
 	z-index: 10;
 	width: 1170px;
@@ -15,18 +15,6 @@
 	}
 }
 
-@media (max-width: 1200px) {
-	.wrapper {width: 970px;}
-}
-
-@media (max-width: 992px) {
-	.wrapper {width: 750px;}
-}
-
-@media (max-width: 768px) {
-	.wrapper {width: auto;}
-}
-
 /* HEADER
 ------------------------------------------------------------------------ */
 
@@ -35,7 +23,7 @@
 	z-index: 700;
 	padding: 15px 0;
 	
-	.wrapper {
+	.container {
 		@include flex(center, space-between);
 	}
 	
@@ -96,10 +84,10 @@
 	}
 }
 
-/* TMENU
+/* NAVIGATION
 ------------------------------------------------------------------------ */
 
-.tmenu {
+.navigation {
 	position: relative;
 	z-index: 100;
 	background: #f2f2f2;
@@ -119,7 +107,7 @@
 				display: table-cell;
 
 				&:last-child {
-					.tmenu-child {
+					.navigation-child {
 						left: auto;
 						right: 0;
 					}
@@ -135,7 +123,7 @@
 		&:hover {
 			overflow: visible;
 
-			.tmenu {
+			.navigation {
 				&-child {
 					margin-top: 0;
 					opacity: 1;
@@ -200,7 +188,7 @@
 	padding: 15px 0;
 	color: #ccc;
 	
-	.wrapper {
+	.container {
 		@include flex(center, space-between);
 	}
 }
@@ -228,4 +216,21 @@
 		@include icon('developer.png');
 		margin: 0 5px 0 10px;
 	}
+}
+
+
+
+/* RESPONSIVE
+------------------------------------------------------------------------ */
+
+@media (max-width: 1200px) {
+	.container {width: 970px;}
+}
+
+@media (max-width: 992px) {
+	.container {width: 750px;}
+}
+
+@media (max-width: 768px) {
+	.container {width: auto;}
 }

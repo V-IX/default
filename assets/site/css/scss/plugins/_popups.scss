@@ -19,17 +19,13 @@
 		display: none;
 		@include position(fixed, 0, 0, null, null, 1000);
 		@include size(100%, 100%);
-		overflow: auto;
 		padding: 30px 10px;
+		background: rgba(#000, 0.7);
+		overflow: auto;
 		
 		.popup {
 			display: block;
 		}
-	}
-	&-background {
-		@include size(100%, 100%);
-		@include position(absolute, 0, 0);
-		background: rgba(#000, 0.7);
 	}
 }
 

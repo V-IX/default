@@ -21,11 +21,11 @@
 
     <? $csrf = $this->security->get_csrf_hash();?>
     <script>
-        base_url = "<?=base_url()?>"
-        csrf_test_name = "<?=$csrf;?>"
+        const base_url = "<?=base_url()?>",
+			csrf_test_name = "<?=$csrf;?>"
     </script>
 
-	<?=script(PATH_PLUGINS.'/jquery/jquery-1.9.1.min.js');?>
+	<?=script(PATH_PLUGINS.'/jquery/jquery-3.5.0.min.js');?>
 	<?=script(PATH_PLUGINS.'/bootstrap/js/bootstrap.min.js');?>
 	<?=script(PATH_PLUGINS.'/jquery.formstyler/jquery.formstyler.js');?>
 	<?=script('assets/admin/js/common.js'.$version);?>

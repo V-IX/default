@@ -7,10 +7,10 @@ function rightHeight() {
 	$('.right-side-in').css('min-height', h);
 }
 
-$(window).load(function(){
-	rightHeight()
-});
-
-$(window).resize(function(){
-	rightHeight()
-});
+$(window)
+	.on('load', function () {
+		rightHeight();
+	})
+	.on('resize', function () {
+		rightHeight();
+	});

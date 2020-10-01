@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Апр 17 2020 г., 12:45
+-- Время создания: Окт 01 2020 г., 09:49
 -- Версия сервера: 10.3.13-MariaDB
 -- Версия PHP: 7.3.2
 
@@ -315,7 +315,7 @@ CREATE TABLE `settings` (
 --
 
 INSERT INTO `settings` (`id`, `title`, `descr`, `img`, `owner`, `details`, `copyright`, `phone`, `phone_extra`, `phone_city`, `address`, `map`, `email`, `email_sender`, `skype`, `meta_title`, `meta_description`, `enable`, `cap_title`, `cap_descr`, `mask_phone`, `mask_phone_extra`, `mask_phone_city`, `img_alt`, `color`, `code_before`, `code_after`, `version`) VALUES
-(1, 'Site Name', 'site description', 'logo.png', 'ООО \"RudzPark\"', 'Зарегистрирован в Торговом реестре \r\nРБ №0000000 от 16.05.2019 г.', '2019 &copy; Sitename\r\nAll rights reserved', '375290000000', '375330000000', '', 'г. Новополоцк, ул. Молодежная, 11-А', '<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3A37b22475ebf4905210c81bbea2e9b5bebd8e9b8e2efb7220068137379cc45932&lang=ru_RU&scroll=true&source=constructor\" width=\"100%\" height=\"315\" frameborder=\"0\"></iframe>', 'narisuemvse.testmail@yandex.ru', 'narisuemvse.testmail@yandex.ru', '', 'Site Meta', 'site description for seo', 1, 'Сайт временно закрыт', 'Приносим свои извинения и гарантируем\r\nв скором времени наладить работу', '+??? (??) ???-??-??', '+??? (??) ???-??-??', '+??? (??) ???-??-??', 'Sitename images', 'D11212', '<script>$(\'#yandex\').hide()</script>', '', '0.1');
+(1, 'Site Name', 'site description', 'logo.png', 'ООО \"RudzPark\"', 'Зарегистрирован в Торговом реестре \r\nРБ №0000000 от 16.05.2019 г.', '2020 &copy; Sitename\r\nAll rights reserved', '375290000000', '375330000000', '', 'г. Новополоцк, ул. Молодежная, 11-А', '<iframe src=\"https://yandex.ru/map-widget/v1/?um=constructor%3A37b22475ebf4905210c81bbea2e9b5bebd8e9b8e2efb7220068137379cc45932&lang=ru_RU&scroll=true&source=constructor\" width=\"100%\" height=\"315\" frameborder=\"0\"></iframe>', 'narisuemvse.testmail@yandex.ru', 'narisuemvse.testmail@yandex.ru', '', 'Site Meta', 'site description for seo', 1, 'Сайт временно закрыт', 'Приносим свои извинения и гарантируем\r\nв скором времени наладить работу', '+??? (??) ???-??-??', '+??? (??) ???-??-??', '+??? (??) ???-??-??', 'Sitename images', 'D11212', '', '', '0.1');
 
 -- --------------------------------------------------------
 
